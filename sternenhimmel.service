@@ -1,0 +1,20 @@
+# Example systemd file. Copy me to /etc/systemd/system
+# Load changed config once with
+#   sudo systemctl daemon-reload
+# Start me with
+#   sudo systemctl start sternenhimmel
+# View logs with
+#   journalctl -fu sternenhimmel
+
+[Unit]
+Description=Light and switch controller
+After=deconz.service
+
+[Service]
+User=pi
+ExecStart=python3 /home/pi/sternenhimmel/main.py
+Restart=on-failure
+Environment=SENTRY_DSN=https://xxxxxxxxx@xxxxxx.ingest.sentry.io/xxxxxx
+
+[Install]
+WantedBy=multi-user.target

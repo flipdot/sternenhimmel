@@ -1,10 +1,15 @@
 # Sternenhimmel
 
-
-
 Influence the light when the script is running:
 
     mosquitto_pub -t "sternenhimmel/group/b" -m '{"on": true, "amplitude": 1, "frequency": 0.5}' -r
+
+## Deployment
+
+    ssh pi@raspbee2.fd
+    cd sternenhimmel
+    git pull
+    sudo systemctl restart sternenhimmel
 
 ## Pair device
 
