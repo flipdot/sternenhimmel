@@ -110,8 +110,10 @@ class Sternenhimmel:
         groups = set(switch)
         for group in groups:
             group_state = self.state.get("group", {}).get(group, {})
+            if not group_state.get("on"):
+                # don't change settings of lights that are turned off
+                continue
             payload = {
-                "on": True,
                 "amplitude": group_state.get("amplitude", DEFAULT_BRIGHTNESS)
             }
             if data.get("action") == "on":
