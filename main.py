@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 from time import sleep
 import math
 
@@ -10,7 +11,7 @@ logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 
 sentry_sdk.init(
-    "https://3db32c09c34a4705b3cb5d42fd379bb0@o1055980.ingest.sentry.io/6042137",
+    os.environ.get("SENTRY_DSN"),
 
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
