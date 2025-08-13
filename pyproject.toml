@@ -3,7 +3,7 @@ name = "sternenhimmel"
 version = "0.0.0"
 description = " Connects switches with lights via zigbee2mqtt."
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.12"
 dependencies = [
     "paho-mqtt==1.6.1",
     "sentry-sdk==2.8.0",
