@@ -77,12 +77,12 @@ class Sternenhimmel:
         self.step = 0
 
     def on_lights_message(self, data):
-        self.lights = [x["friendly_name"].partition("/")[2] for x in data if
-                       x["friendly_name"].startswith("light/")]
-        groups = set([l[0] for l in self.lights])
+        self.lights = [D["friendly_name"].partition("/")[2] for D in data if
+                       D["friendly_name"].startswith("light/")]
+        groups = set([L[0] for L in self.lights])
         self.light_groups = {
-            g: [l for l in self.lights if l.startswith(g)]
-            for g in groups
+            G: [L for L in self.lights if L.startswith(G)]
+            for G in groups
         }
 
     def on_sternenhimmel_state(self, key, data):
