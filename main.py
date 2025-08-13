@@ -40,8 +40,8 @@ def update_state_recursive(obj, key, value):
 class Sternenhimmel:
 
     def __init__(self):
-        def on_connect(client, userdata, flags, rc):
-            logger.info(f"Connected with result code {rc}")
+        def on_connect(client, userdata, flags, reason_code, properties):
+            logger.info(f"Connected with result code {reason_code}")
             client.subscribe("zigbee2mqtt/switch/#")
             client.subscribe("zigbee2mqtt/bridge/devices")
             client.subscribe("sternenhimmel/#")
@@ -71,7 +71,7 @@ class Sternenhimmel:
         self.lights = []
         self.light_groups = {}
         self.state = {}
-        self.mqtt = mqtt.Client()
+        self.mqtt = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
         self.mqtt.on_connect = on_connect
         self.mqtt.on_message = on_message
         self.step = 0
