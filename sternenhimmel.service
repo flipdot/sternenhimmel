@@ -12,7 +12,8 @@ After=deconz.service
 
 [Service]
 User=pi
-ExecStart=python3 /home/pi/sternenhimmel/main.py
+WorkingDirectory=/home/pi/sternenhimmel
+ExecStart=/home/pi/sternenhimmel/.venv/bin/python /home/pi/sternenhimmel/main.py
 Restart=on-failure
 Environment=SENTRY_DSN=https://xxxxxxxxx@xxxxxx.ingest.sentry.io/xxxxxx
 

@@ -6,9 +6,24 @@ Influence the light when the script is running:
 
 ## Deployment
 
+Initial setup on the pi (once): install [uv](https://docs.astral.sh/uv/), then
+
+    ssh pi@raspbee2.fd
+    cd sternenhimmel
+    uv sync
+    sudo cp sternenhimmel.service /etc/systemd/system
+    sudo systemctl daemon-reload
+    sudo systemctl restart sternenhimmel
+
+`uv sync` creates `.venv` and, if the pi's python3 is older than 3.10,
+downloads a managed CPython interpreter.
+
+Updates:
+
     ssh pi@raspbee2.fd
     cd sternenhimmel
     git pull
+    uv sync
     sudo systemctl restart sternenhimmel
 
 ## Pair device
