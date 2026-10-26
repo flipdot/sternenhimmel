@@ -2,10 +2,10 @@
 name = "sternenhimmel"
 version = "0.1.0"
 description = "Light and switch controller for the flipdot raspberry pi"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 dependencies = [
-    "paho-mqtt==1.6.1",
-    "sentry-sdk==2.8.0",
+    "paho-mqtt==2.1.0",
+    "sentry-sdk==2.73.0",
 ]
 
 [tool.uv]
