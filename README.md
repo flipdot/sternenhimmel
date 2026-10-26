@@ -15,8 +15,8 @@ Initial setup on the pi (once): install [uv](https://docs.astral.sh/uv/), then
     sudo systemctl daemon-reload
     sudo systemctl restart sternenhimmel
 
-`uv sync` creates `.venv` and, if the pi's python3 is older than 3.10,
-downloads a managed CPython interpreter.
+`uv sync` creates `.venv` and downloads a managed CPython 3.12
+interpreter (the pi's system python is not used).
 
 Updates:
 
