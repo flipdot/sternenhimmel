@@ -6,9 +6,16 @@ Influence the light when the script is running:
 
 ## Deployment
 
+Initial setup on the pi (once):
+
+    pip3 install -r requirements.txt
+
+Updates:
+
     ssh pi@raspbee2.fd
     cd sternenhimmel
     git pull
+    pip3 install -r requirements.txt
     sudo systemctl restart sternenhimmel
 
 ## Pair device
